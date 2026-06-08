@@ -30,12 +30,15 @@ PDFXRay/
 │
 ├── deep_analyze.py
 ├── create_samples.py
+├── PDFxray_report.py
 ├── README.md
 ├── requirements.txt
 │
-└── samples/
-    ├── benign_sample.pdf
-    └── malicious_sample.pdf
+├── samples/
+│   ├── benign_sample.pdf
+│   └── malicious_sample.pdf
+│
+└── reports/
 ```
 
 ---
