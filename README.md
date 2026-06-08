@@ -1,25 +1,28 @@
 # PDFXRay
 
-PDFXRay is an educational PDF analysis tool built in Python for static PDF inspection. It helps identify potentially suspicious PDF indicators such as JavaScript actions, OpenAction triggers, embedded files, URLs, IP addresses, and suspicious strings.
+PDFXRay is a Python-based PDF malware analysis tool designed for educational and research purposes. The tool performs static analysis of PDF files and detects potentially suspicious indicators such as JavaScript actions, OpenAction triggers, embedded files, URLs, IP addresses, suspicious strings, and compressed streams.
 
-> This project is intended for educational purposes, malware analysis learning, and CEHv13 practice.
+This project was developed as part of PDF malware analysis learning and CEHv13 practice.
 
 ---
 
 ## Features
 
-- PDF Structure Analysis
-- Object and Stream Enumeration
-- FlateDecode Stream Decompression
-- JavaScript Detection
-- OpenAction Detection
-- Launch Action Detection
-- Embedded File Detection
-- URL Extraction
-- IP Address Extraction
-- Suspicious String Detection
-- PDF Metadata Inspection
-- Risk Assessment Reporting
+* PDF Structure Analysis
+* Object Enumeration
+* Stream Enumeration
+* FlateDecode Stream Decompression
+* JavaScript Detection
+* OpenAction Detection
+* Launch Action Detection
+* Embedded File Detection
+* URL Extraction
+* IP Address Extraction
+* Suspicious String Detection
+* PDF Metadata Inspection
+* JSON Report Generation
+* Excel Report Generation
+* Risk Assessment Reporting
 
 ---
 
@@ -30,25 +33,25 @@ PDFXRay/
 │
 ├── deep_analyze.py
 ├── create_samples.py
-├── PDFxray_report.py
 ├── README.md
 ├── requirements.txt
 │
-├── samples/
-│   ├── benign_sample.pdf
-│   └── malicious_sample.pdf
+├── reports/
+│   └── PDFxray_report.py
 │
-└── reports/
+└── samples/
+    ├── benign_sample.pdf
+    └── malicious_sample.pdf
 ```
 
 ---
 
 ## Requirements
 
-- Python 3.10+
-- Windows/Linux
+* Python 3.10+
+* Windows or Linux
 
-Install dependencies:
+Install required dependencies:
 
 ```bash
 pip install -r requirements.txt
@@ -56,25 +59,53 @@ pip install -r requirements.txt
 
 ---
 
+## requirements.txt
+
+```txt
+openpyxl>=3.1.5
+pdfminer.six>=20231228
+PyMuPDF>=1.26.0
+yara-python>=4.5.0
+pefile>=2024.8.26
+```
+
+---
+
 ## Usage
 
-Analyze a PDF:
+### Deep PDF Analysis
 
 ```bash
 python deep_analyze.py sample.pdf
 ```
 
-Analyze a specific file:
+Example:
 
 ```bash
-python deep_analyze.py "C:\Path\To\File.pdf"
+python deep_analyze.py "C:\Users\User\Downloads\sample.pdf"
+```
+
+---
+
+### Generate Analysis Report
+
+Generate JSON and Excel reports:
+
+```bash
+python reports/PDFxray_report.py sample.pdf
+```
+
+Example:
+
+```bash
+python reports/PDFxray_report.py "C:\Users\User\Downloads\sample.pdf"
 ```
 
 ---
 
 ## Sample Generation
 
-Generate test PDFs:
+Generate test PDF samples:
 
 ```bash
 python create_samples.py
@@ -92,19 +123,34 @@ samples/
 
 ## Detection Capabilities
 
-PDFXRay checks for:
+| Indicator          | Detection |
+| ------------------ | --------- |
+| JavaScript         | ✅         |
+| OpenAction         | ✅         |
+| Launch Action      | ✅         |
+| Embedded File      | ✅         |
+| URLs               | ✅         |
+| IP Addresses       | ✅         |
+| Suspicious Strings | ✅         |
+| Compressed Streams | ✅         |
+| PDF Objects        | ✅         |
+| PDF Metadata       | ✅         |
 
-| Indicator | Detection |
-|------------|------------|
-| JavaScript | ✅ |
-| OpenAction | ✅ |
-| Launch Actions | ✅ |
-| Embedded Files | ✅ |
-| URLs | ✅ |
-| IP Addresses | ✅ |
-| Suspicious Strings | ✅ |
-| Compressed Streams | ✅ |
-| PDF Objects | ✅ |
+---
+
+## Generated Reports
+
+The report generator automatically creates:
+
+* JSON Report
+* Excel Report (.xlsx)
+
+Example:
+
+```text
+sample_report.json
+sample_report.xlsx
+```
 
 ---
 
@@ -112,41 +158,57 @@ PDFXRay checks for:
 
 ```text
 ============================================================
-DEEP ANALYSIS
+PDFXRay REPORT
 ============================================================
 
-File: sample.pdf
-Size: 120 KB
+filename: sample.pdf
+size_bytes: 121137
+pdf_version: 1.4
 
-JavaScript: 0
-OpenAction: 0
-Embedded Files: 0
+javascript: 0
+open_action: 0
+embedded_files: 0
 
-FINAL VERDICT:
-FILE IS BENIGN
+verdict: BENIGN
+
+JSON Saved : sample_report.json
+Excel Saved: sample_report.xlsx
 ```
 
 ---
 
 ## Educational Purpose
 
-This project was created to help students learn:
+This project was created to help students understand:
 
-- PDF Internals
-- Static Malware Analysis
-- PDF Threat Hunting
-- CEHv13 Concepts
-- Secure Document Inspection
+* PDF Internals
+* Static Malware Analysis
+* PDF Threat Hunting
+* CEHv13 Concepts
+* Secure Document Inspection
+* Malware Analysis Methodology
 
 ---
 
 ## Disclaimer
 
-This tool is provided for educational and research purposes only.
+This project is intended strictly for educational, research, and authorized security testing purposes.
 
-Do not use this project to analyze files without proper authorization.
+Do not use this software against systems, files, or environments without proper authorization.
 
-The author is not responsible for misuse of this software.
+The author assumes no responsibility for misuse of this software.
+
+---
+
+## Future Improvements
+
+* YARA Rule Scanning
+* VirusTotal Integration
+* IOC Extraction
+* Entropy Analysis
+* Embedded File Extraction
+* PDF Risk Scoring Engine
+* GUI Version (Tkinter / PyQt)
 
 ---
 
@@ -154,4 +216,11 @@ The author is not responsible for misuse of this software.
 
 Rohan Kumar
 
-Cybersecurity Student | CEHv13 Learner | PDF Malware Analysis Enthusiast
+Cybersecurity Student
+
+CEHv13 Learner
+
+PDF Malware Analysis Research Project
+
+GitHub Portfolio Project
+
