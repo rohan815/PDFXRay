@@ -1,0 +1,18 @@
+{
+    "filename": "benign_sample.pdf",
+    "filepath": "C:\\Users\\USER\\PDFXRay\\samples\\benign_sample.pdf",
+    "size_bytes": 602,
+    "size_kb": 0.59,
+    "md5": "0313a89b7909a342f22b9781287ef5de",
+    "sha256": "25c1a378ea990db71091b5b1d19229f7e66ca8f90c63579b017a6d32759be94f",
+    "pdf_version": "1.4",
+    "objects": 5,
+    "streams": 1,
+    "javascript": 0,
+    "open_action": 0,
+    "launch_action": 0,
+    "embedded_files": 0,
+    "risk_level": "LOW",
+    "verdict": "BENIGN",
+    "analysis_time": "2026-06-08 16:08:21"
+}
